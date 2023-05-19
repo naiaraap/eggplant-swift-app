@@ -8,7 +8,9 @@
 import UIKit
 
 class MealTableViewController: UITableViewController, AddMealDelegate {
-  
+
+
+  //MARK: - gloval vars
   var meals = [Meal(name: "Brownie", satisfaction: 5),
                Meal(name: "Chocolat Muffin", satisfaction: 3),
                Meal(name: "Coconut Oil", satisfaction: 5),
@@ -16,6 +18,8 @@ class MealTableViewController: UITableViewController, AddMealDelegate {
                Meal(name: "Chickpea Salad", satisfaction: 4),
                Meal(name: "Orange Cake", satisfaction: 5),
                Meal(name: "Potato Chips", satisfaction: 1)]
+
+  var selectedMeal: Meal?
     
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return meals.count
@@ -43,6 +47,7 @@ class MealTableViewController: UITableViewController, AddMealDelegate {
       guard let indexPath = tableView.indexPath(for: cell) else { return }
       
       let meal = meals[indexPath.row]
+      selectedMeal = meal
       
       let alert = UIAlertController(title: meal.name, message: meal.details(), preferredStyle: UIAlertController.Style.alert)
       
@@ -69,7 +74,7 @@ class MealTableViewController: UITableViewController, AddMealDelegate {
   }
 
   func removeMeal(_alert: UIAlertAction) {
-    print("removing meal")
+    print("removing meal: \(selectedMeal?.name ?? "no meal")")
   }
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
