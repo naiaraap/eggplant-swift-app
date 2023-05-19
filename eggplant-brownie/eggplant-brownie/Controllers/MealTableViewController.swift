@@ -10,7 +10,7 @@ import UIKit
 class MealTableViewController: UITableViewController, AddMealDelegate {
 
 
-  //MARK: - gloval vars
+  //MARK: - attributes
   var meals = [Meal(name: "Brownie", satisfaction: 5),
                Meal(name: "Chocolat Muffin", satisfaction: 3),
                Meal(name: "Coconut Oil", satisfaction: 5),
@@ -45,12 +45,6 @@ class MealTableViewController: UITableViewController, AddMealDelegate {
       guard let indexPath = tableView.indexPath(for: cell) else { return }
       
       let meal = meals[indexPath.row]
-
-      func removeMeal(_alert: UIAlertAction) {
-        print("removing meal: \(meal.name ?? "no meal")")
-        meals.remove(at: indexPath.row)
-        tableView.reloadData()
-      }
       
       let alert = UIAlertController(title: meal.name, message: meal.details(), preferredStyle: UIAlertController.Style.alert)
       
@@ -58,12 +52,11 @@ class MealTableViewController: UITableViewController, AddMealDelegate {
       
       alert.addAction(buttonCancel)
 
-      let removeButton = UIAlertAction(title: "Remove", style: UIAlertAction.Style.destructive, handler: removeMeal
-      // { action in
-      //   self.meals.remove(at: indexPath.row)
-      //   self.tableView.reloadData()
-      // }
-      )
+      let removeButton = UIAlertAction(title: "Remove", style: UIAlertAction.Style.destructive, handler:
+       { action in
+         self.meals.remove(at: indexPath.row)
+         self.tableView.reloadData()
+       })
 
       alert.addAction(removeButton)
       
