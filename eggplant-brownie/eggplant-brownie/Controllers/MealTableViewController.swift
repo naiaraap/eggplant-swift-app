@@ -46,9 +46,18 @@ class MealTableViewController: UITableViewController, AddMealDelegate {
       
       let alert = UIAlertController(title: meal.name, message: meal.details(), preferredStyle: UIAlertController.Style.alert)
       
-      let buttonCancel = UIAlertAction(title: "ok", style: UIAlertAction.Style.cancel, handler: nil)
+      let buttonCancel = UIAlertAction(title: "Cancell", style: UIAlertAction.Style.cancel)
       
       alert.addAction(buttonCancel)
+
+      let removeButton = UIAlertAction(title: "Remove", style: UIAlertAction.Style.destructive, handler: removeMeal
+      // { action in
+      //   self.meals.remove(at: indexPath.row)
+      //   self.tableView.reloadData()
+      // }
+      )
+
+      alert.addAction(removeButton)
       
       present(alert, animated: true, completion: nil)
       
@@ -57,6 +66,10 @@ class MealTableViewController: UITableViewController, AddMealDelegate {
       //   self.tableView.reloadData()
       // })
     }
+  }
+
+  func removeMeal(_alert: UIAlertAction) {
+    print("removing meal")
   }
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
