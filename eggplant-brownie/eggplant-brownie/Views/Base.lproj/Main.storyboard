@@ -77,7 +77,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Adicionar"/>
                                 <connections>
-                                    <action selector="addNewMeal:" destination="yHF-dE-0RU" eventType="touchUpInside" id="Fvg-Bx-LD9"/>
+                                    <action selector="addNewMeal:" destination="yHF-dE-0RU" eventType="touchUpInside" id="wbn-hl-LNu"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Satisfaction:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UAa-Z3-AGF">

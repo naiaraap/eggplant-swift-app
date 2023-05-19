@@ -94,24 +94,33 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     }
   }
-  
-  //MARK: - IBActions
-  
-  @IBAction func addNewMeal(_ sender: Any) {
+
+  func validadeMealFormData() -> Meal? {
     guard let mealName = nameTextField?.text else {
-      return
+      
+      return nil
     }
     
     guard let mealSatisfaction = satisfactionTextField?.text, let satisfaction = Int(mealSatisfaction) else {
-      return
+      
+      return nil
     }
     
     let meal = Meal(name: mealName, satisfaction: satisfaction)
     
     meal.items = selectedItens
     
-    print("eaten: \(meal.name ?? "") \(meal.satisfaction ?? 0)")
-
+    return meal
+  }
+  
+  //MARK: - IBActions
+  
+  @IBAction func addNewMeal(_ sender: Any) {
+    guard let meal = validadeMealFormData() else {
+      Alert(controller: self).show("Sorry", message: "Could not read meal form data properly.")
+      return
+    }
+    
     delegate?.add(meal)
     navigationController?.popViewController(animated: true)
   
