@@ -7,7 +7,7 @@
 
 import UIKit
 
-class Meal: NSObject {
+class Meal: NSObject, NSCoding {
   
   //MARK: - Attributes
   
@@ -21,6 +21,19 @@ class Meal: NSObject {
     self.name = name
     self.satisfaction = satisfaction
     self.items = items
+  }
+  
+  //MARK: - NSCoding
+  func encode(with aCoder: NSCoder) {
+    aCoder.encode(name, forKey: "name")
+    aCoder.encode(satisfaction, forKey: "satisfaction")
+    aCoder.encode(items, forKey: "items")
+  }
+  
+  required init?(coder aDecoder: NSCoder) {
+    name = aDecoder.decodeObject(forKey: "name") as? String
+    satisfaction = aDecoder.decodeObject(forKey: "satisfaction") as? Int
+    items = aDecoder.decodeObject(forKey: "items") as! Array<Item>
   }
   
   //MARK: - Methods

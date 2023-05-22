@@ -7,12 +7,26 @@
 
 import UIKit
 
-class Item: NSObject {
+class Item: NSObject, NSCoding {
+  
+  //MARK: - Attributes
+  
   let name: String?
   let calories: Double?
   
   init(name: String, calories: Double) {
     self.name = name
     self.calories = calories
+  }
+  
+  //MARK: - NSCoding
+  func encode(with aCoder: NSCoder) {
+    aCoder.encode(name, forKey: "name")
+    aCoder.encode(calories, forKey: "calories")
+  }
+  
+  required init?(coder aDecoder: NSCoder) {
+    name = aDecoder.decodeObject(forKey: "name") as? String
+    calories = aDecoder.decodeObject(forKey: "calories") as? Double
   }
 }

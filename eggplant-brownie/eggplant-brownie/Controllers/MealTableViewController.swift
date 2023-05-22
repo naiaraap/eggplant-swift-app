@@ -36,6 +36,18 @@ class MealTableViewController: UITableViewController, AddMealDelegate {
   
   func add(_ meal: Meal) {
     meals.append(meal)
+    guard let directory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
+    let path = directory.appendingPathComponent("meals")
+
+    do {
+      let data = try NSKeyedArchiver.archivedData(withRootObject: meals, requiringSecureCoding: false)
+      try data.write(to: path)
+    } catch {
+      print(error.localizedDescription)
+    }
+    
+    
+    
     tableView.reloadData()
   }
 
