@@ -52,6 +52,22 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     } else {
       Alert(controller: self).show()
     }
+    
+    do {
+      let data = try NSKeyedArchiver.archivedData(withRootObject: itens, requiringSecureCoding: false)
+      guard let path = retriveDirectory() else { return }
+      
+      try data.write(to: path)
+    } catch {
+      print(error.localizedDescription)
+    }
+  }
+
+  func retriveDirectory() -> URL? {
+    guard let directory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return nil }
+    let path = directory.appendingPathComponent("itens")
+    
+    return path
   }
   
   //MARK: - UITableViewDataSource

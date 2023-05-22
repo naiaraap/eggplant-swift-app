@@ -23,9 +23,7 @@ class MealTableViewController: UITableViewController, AddMealDelegate {
   
   //MARK: - Loading meal data
   override func viewDidLoad() {
-    guard let directory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
-    let path = directory.appendingPathComponent("meals")
-    
+    guard let path = retriveDirectory() else { return }
     do {
       let data = try Data(contentsOf: path)
       guard let storedMeals = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as? Array<Meal> else { return }
@@ -35,8 +33,13 @@ class MealTableViewController: UITableViewController, AddMealDelegate {
     } catch {
       print(error.localizedDescription)
     }
+  }
+  
+  func retriveDirectory() -> URL? {
+    guard let directory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return nil }
+    let path = directory.appendingPathComponent("meals")
     
-
+    return path
   }
 
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -57,8 +60,8 @@ class MealTableViewController: UITableViewController, AddMealDelegate {
   //MARK: - Adding meal to meal data
   func add(_ meal: Meal) {
     meals.append(meal)
-    guard let directory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
-    let path = directory.appendingPathComponent("meals")
+    
+    guard let path = retriveDirectory() else { return }
 
     do {
       let data = try NSKeyedArchiver.archivedData(withRootObject: meals, requiringSecureCoding: false)
@@ -66,8 +69,6 @@ class MealTableViewController: UITableViewController, AddMealDelegate {
     } catch {
       print(error.localizedDescription)
     }
-    
-    
     
     tableView.reloadData()
   }
