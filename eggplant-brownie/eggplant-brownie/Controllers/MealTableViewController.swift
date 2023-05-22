@@ -45,35 +45,14 @@ class MealTableViewController: UITableViewController, AddMealDelegate {
       guard let indexPath = tableView.indexPath(for: cell) else { return }
       
       let meal = meals[indexPath.row]
-      
-      let alert = UIAlertController(title: meal.name, message: meal.details(), preferredStyle: UIAlertController.Style.alert)
-      
-      let buttonCancel = UIAlertAction(title: "Cancell", style: UIAlertAction.Style.cancel)
-      
-      alert.addAction(buttonCancel)
 
-      let removeButton = UIAlertAction(title: "Remove", style: UIAlertAction.Style.destructive, handler:
-       { action in
-         self.meals.remove(at: indexPath.row)
-         self.tableView.reloadData()
-       })
-
-      alert.addAction(removeButton)
-      
-      present(alert, animated: true, completion: nil)
-      
-      // RemoveMealController(controller: self).show(meal, handler: { action in
-      //   self.meals.remove(at: indexPath.row)
-      //   self.tableView.reloadData()
-      // })
+      RemoveMealController(controller: self).show(meal, handler: { action in
+        self.meals.remove(at: indexPath.row)
+        self.tableView.reloadData()
+      })
     }
   }
 
-  // func removeMeal(_alert: UIAlertAction, selectedMeal: Meal?) {
-  //   print("removing meal: \(selectedMeal?.name ?? "no meal")")
-
-  // }
-  
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     
     if segue.identifier == "addmeal" {

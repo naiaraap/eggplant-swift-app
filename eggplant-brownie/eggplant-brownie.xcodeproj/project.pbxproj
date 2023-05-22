@@ -11,6 +11,7 @@
 		4C0FF1FB2A0FB48E00A49BB4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0FF1FA2A0FB48E00A49BB4 /* ViewController.swift */; };
 		4C174C6A2A0ED442003C6B9F /* MealTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C174C692A0ED442003C6B9F /* MealTableViewController.swift */; };
 		4C6DE06E2A1563FE00D8DED0 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6DE06D2A1563FE00D8DED0 /* Alert.swift */; };
+		4C6FA2F22A18125700913F9A /* RemoveMealController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6FA2F12A18125700913F9A /* RemoveMealController.swift */; };
 		4CB2787F2A13BBDE0093ED1E /* AddItemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CB2787D2A13BBDE0093ED1E /* AddItemViewController.xib */; };
 		4CB622A42A0A9AAF0088F117 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB622A32A0A9AAF0088F117 /* AppDelegate.swift */; };
 		4CB622A62A0A9AAF0088F117 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB622A52A0A9AAF0088F117 /* SceneDelegate.swift */; };
@@ -26,6 +27,7 @@
 		4C0FF1FA2A0FB48E00A49BB4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4C174C692A0ED442003C6B9F /* MealTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTableViewController.swift; sourceTree = "<group>"; };
 		4C6DE06D2A1563FE00D8DED0 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		4C6FA2F12A18125700913F9A /* RemoveMealController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveMealController.swift; sourceTree = "<group>"; };
 		4CB2787D2A13BBDE0093ED1E /* AddItemViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddItemViewController.xib; sourceTree = "<group>"; };
 		4CB622A02A0A9AAF0088F117 /* eggplant-brownie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "eggplant-brownie.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CB622A32A0A9AAF0088F117 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 				4C174C692A0ED442003C6B9F /* MealTableViewController.swift */,
 				4C0FF1FA2A0FB48E00A49BB4 /* ViewController.swift */,
 				4C0E6CDE2A13CBD900479A6B /* AddItemViewController.swift */,
+				4C6FA2F12A18125700913F9A /* RemoveMealController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -186,6 +189,7 @@
 				4CB622BB2A0A9B330088F117 /* Meal.swift in Sources */,
 				4CB622A42A0A9AAF0088F117 /* AppDelegate.swift in Sources */,
 				4C0E6CDF2A13CBD900479A6B /* AddItemViewController.swift in Sources */,
+				4C6FA2F22A18125700913F9A /* RemoveMealController.swift in Sources */,
 				4C174C6A2A0ED442003C6B9F /* MealTableViewController.swift in Sources */,
 				4C6DE06E2A1563FE00D8DED0 /* Alert.swift in Sources */,
 				4CB622A62A0A9AAF0088F117 /* SceneDelegate.swift in Sources */,
