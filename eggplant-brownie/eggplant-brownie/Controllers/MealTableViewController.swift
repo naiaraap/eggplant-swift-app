@@ -18,7 +18,27 @@ class MealTableViewController: UITableViewController, AddMealDelegate {
                Meal(name: "Chickpea Salad", satisfaction: 4),
                Meal(name: "Orange Cake", satisfaction: 5),
                Meal(name: "Potato Chips", satisfaction: 1)]
+
+  // MARK: - View life cycle
+  
+  //MARK: - Loading meal data
+  override func viewDidLoad() {
+    guard let directory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
+    let path = directory.appendingPathComponent("meals")
     
+    do {
+      let data = try Data(contentsOf: path)
+      guard let storedMeals = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as? Array<Meal> else { return }
+      
+      meals = storedMeals
+    
+    } catch {
+      print(error.localizedDescription)
+    }
+    
+
+  }
+
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return meals.count
   }
@@ -34,6 +54,7 @@ class MealTableViewController: UITableViewController, AddMealDelegate {
     return cell
   }
   
+  //MARK: - Adding meal to meal data
   func add(_ meal: Meal) {
     meals.append(meal)
     guard let directory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
