@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ZRG-6O-9JS">
-    <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -29,15 +28,15 @@
             <objects>
                 <tableViewController storyboardIdentifier="TableView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="d7W-rp-n4y" customClass="MealTableViewController" customModule="eggplant_brownie" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="KJ0-Oj-aiY">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="mealCellPrototype" id="p1p-sg-Sf7">
-                                <rect key="frame" x="0.0" y="50" width="390" height="43.666667938232422"/>
+                                <rect key="frame" x="0.0" y="50" width="600" height="43.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="p1p-sg-Sf7" id="pIL-dL-bgC">
-                                    <rect key="frame" x="0.0" y="0.0" width="390" height="43.666667938232422"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.666667938232422"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -66,11 +65,11 @@
             <objects>
                 <viewController id="yHF-dE-0RU" customClass="ViewController" customModule="eggplant_brownie" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QOG-er-uX7">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ob7-If-JoO">
-                                <rect key="frame" x="147.33333333333334" y="760.66666666666663" width="95.333333333333343" height="35"/>
+                                <rect key="frame" x="252.33333333333334" y="638.66666666666663" width="95.333333333333343" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="FNx-Sh-tCj"/>
                                 </constraints>
@@ -81,35 +80,35 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Satisfaction:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UAa-Z3-AGF">
-                                <rect key="frame" x="25.666666666666671" y="262.66666666666669" width="95" height="21"/>
+                                <rect key="frame" x="130.66666666666666" y="140.66666666666666" width="95" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nome:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xWe-ap-l59">
-                                <rect key="frame" x="25.666666666666671" y="198" width="51" height="20.333333333333343"/>
+                                <rect key="frame" x="130.66666666666666" y="76" width="51" height="20.333333333333329"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ex: 0 infeliz, 5 muito feliz" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7XP-6Z-ujF">
-                                <rect key="frame" x="170" y="256" width="188.33333333333337" height="34"/>
+                                <rect key="frame" x="275" y="134" width="188.33333333333337" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ex: macarrão" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="o9Q-go-QWz">
-                                <rect key="frame" x="246.00000000000003" y="191" width="112.33333333333334" height="34"/>
+                                <rect key="frame" x="351" y="69" width="112.33333333333331" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Itens" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Ot-fd-54N">
-                                <rect key="frame" x="25.666666666666671" y="341" width="37" height="20.333333333333314"/>
+                                <rect key="frame" x="130.66666666666666" y="219" width="37" height="20.333333333333343"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="jNS-2N-a2K">
-                                <rect key="frame" x="16" y="404" width="358" height="316"/>
+                                <rect key="frame" x="121" y="282" width="358" height="316"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="358" id="SFf-QD-xgM"/>
@@ -142,7 +141,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="7LQ-BT-jWC"/>
                     <connections>
-                        <outlet property="itensTableView" destination="jNS-2N-a2K" id="evs-aZ-S6e"/>
+                        <outlet property="itemsTableView" destination="jNS-2N-a2K" id="evs-aZ-S6e"/>
                         <outlet property="nameTextField" destination="o9Q-go-QWz" id="J8n-Bc-bsF"/>
                         <outlet property="satisfactionTextField" destination="7XP-6Z-ujF" id="LVh-qP-8qi"/>
                     </connections>

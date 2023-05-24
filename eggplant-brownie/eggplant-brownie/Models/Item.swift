@@ -11,8 +11,10 @@ class Item: NSObject, NSCoding {
   
   //MARK: - Attributes
   
-  let name: String?
-  let calories: Double?
+  let name: String
+  let calories: Double
+  
+  //MARK: - init
   
   init(name: String, calories: Double) {
     self.name = name
@@ -26,7 +28,7 @@ class Item: NSObject, NSCoding {
   }
   
   required init?(coder aDecoder: NSCoder) {
-    name = aDecoder.decodeObject(forKey: "name") as? String
-    calories = aDecoder.decodeObject(forKey: "calories") as? Double
+    name = aDecoder.decodeObject(forKey: "name") as! String
+    calories = aDecoder.decodeDouble(forKey: "calories")
   }
 }

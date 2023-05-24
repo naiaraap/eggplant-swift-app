@@ -16,7 +16,6 @@ class AddItemViewController: UIViewController {
   //MARK: - IBOutlets
 
   @IBOutlet weak var nameTextField: UITextField!
-  
   @IBOutlet weak var caloriesTextField: UITextField!
   
   //MARK: - Attributes
@@ -44,12 +43,10 @@ class AddItemViewController: UIViewController {
     guard let name = nameTextField.text, let textCalories = caloriesTextField.text else {
       return
     }
-    guard let calories = Double(textCalories)
-    else {
-      return
+    if let calories = Double(textCalories) {
+      let item = Item(name: name, calories: calories)
+      delegate?.add(item)
+      navigationController?.popViewController(animated: true)
     }
-    let item = Item(name: name, calories: calories)
-    delegate?.add(item)
-    navigationController?.popViewController(animated: true)
   }
 }

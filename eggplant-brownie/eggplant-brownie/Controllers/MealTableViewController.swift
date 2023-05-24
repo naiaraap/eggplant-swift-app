@@ -23,7 +23,7 @@ class MealTableViewController: UITableViewController, AddMealDelegate {
   
   //MARK: - Loading meal data
   override func viewDidLoad() {
-    guard let path = retriveDirectory() else { return }
+    guard let path = retrieveMealsDirectory() else { return }
     do {
       let data = try Data(contentsOf: path)
       guard let storedMeals = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as? Array<Meal> else { return }
@@ -35,7 +35,7 @@ class MealTableViewController: UITableViewController, AddMealDelegate {
     }
   }
   
-  func retriveDirectory() -> URL? {
+  func retrieveMealsDirectory() -> URL? {
     guard let directory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return nil }
     let path = directory.appendingPathComponent("meals")
     
@@ -47,11 +47,11 @@ class MealTableViewController: UITableViewController, AddMealDelegate {
   }
   
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = UITableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "mealCellPrototype")
+    let cell = UITableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "nil")
     let meal = meals[indexPath.row]
     cell.textLabel?.text = meal.name
 
-    let longPress = UILongPressGestureRecognizer(target: self, action: #selector(showDetails))
+    let longPress = UILongPressGestureRecognizer(target: self, action: #selector(showDetails(_:)))
     cell.addGestureRecognizer(longPress)
 
     return cell
@@ -60,20 +60,18 @@ class MealTableViewController: UITableViewController, AddMealDelegate {
   //MARK: - Adding meal to meal data
   func add(_ meal: Meal) {
     meals.append(meal)
+    tableView.reloadData()
     
-    guard let path = retriveDirectory() else { return }
-
+    guard let path = retrieveMealsDirectory() else { return }
     do {
       let data = try NSKeyedArchiver.archivedData(withRootObject: meals, requiringSecureCoding: false)
       try data.write(to: path)
     } catch {
       print(error.localizedDescription)
     }
-    
-    tableView.reloadData()
   }
 
-  @objc func showDetails(recognizer: UILongPressGestureRecognizer) {
+  @objc func showDetails(_ recognizer: UILongPressGestureRecognizer) {
     if recognizer.state == UIGestureRecognizer.State.began {
       let cell = recognizer.view as! UITableViewCell
       guard let indexPath = tableView.indexPath(for: cell) else { return }

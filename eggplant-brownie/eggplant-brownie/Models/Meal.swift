@@ -41,7 +41,7 @@ class Meal: NSObject, NSCoding {
   func allCalories() -> Double {
     var total = 0.0
     for item in items {
-      total += item.calories!
+      total += item.calories
     }
     return total
   }
@@ -50,7 +50,7 @@ class Meal: NSObject, NSCoding {
     var message = "Satisfaction: \(satisfaction ?? 0)\n\nIngredients:\n"
     
     for item in items {
-      message += "- \(item.name ?? "") - \(item.calories ?? 0) calories\n"
+      message += "- \(item.name) - \(item.calories) calories\n"
     }
     
     return message

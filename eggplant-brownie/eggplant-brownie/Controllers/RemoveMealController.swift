@@ -28,17 +28,4 @@ class RemoveMealController {
     
     controller.present(alert, animated: true, completion: nil)
   }
-    // func show(_ meal: Meal, handler: @escaping (UIAlertAction) -> Void) {
-    //     let alert = UIAlertController(title: meal.name, message: meal.details(), preferredStyle: UIAlertController.Style.alert)
-        
-    //     let buttonCancel = UIAlertAction(title: "Cancell", style: UIAlertAction.Style.cancel)
-        
-    //     alert.addAction(buttonCancel)
-        
-    //     let removeButton = UIAlertAction(title: "Remove", style: UIAlertAction.Style.destructive, handler: handler)
-        
-    //     alert.addAction(removeButton)
-        
-    //     controller.present(alert, animated: true, completion: nil)
-    // }
 }
