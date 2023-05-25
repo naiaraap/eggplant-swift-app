@@ -5,7 +5,7 @@
 //  Created by Naiara de Almeida Pantuza on 25/05/23.
 //
 
-import UIKit
+import Foundation
 
 class MealDao {
   func save(_ meals: [Meal]) {
@@ -32,8 +32,7 @@ class MealDao {
           let data = try Data(contentsOf: path)
           guard let storedMeals = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as? Array<Meal> else { return [] }
     
-          var meals = storedMeals
-          return meals
+          return storedMeals
     
         } catch {
           print(error.localizedDescription)

@@ -20,10 +20,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
   //MARK: - Atributes
   
   var delegate: AddMealDelegate?
-  var items = [Item(name: "molho de tomate", calories: 40.0),
-               Item(name: "queijo", calories: 40.0),
-               Item(name: "mangericão", calories: 40.0),
-               Item(name: "azeite de oliva", calories: 40.0)]
+  var items: [Item] = []
   
   var selectedItems = [Item]()
   
@@ -38,16 +35,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
   override func viewDidLoad() {
     let AddItemButton = UIBarButtonItem(title: "Add item", style: UIBarButtonItem.Style.plain, target: self, action: #selector(addItem))
     navigationItem.rightBarButtonItem = AddItemButton
+    retrieveStoredItens()
     
-    do {
-      guard let path = retrieveItemsDirectory() else { return }
-      let data = try Data(contentsOf: path)
-      let storedItems = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as! Array<Item>
-      
-      items = storedItems
-    } catch {
-      print(error.localizedDescription)
-    }
+  }
+  
+  func retrieveStoredItens() {
+    items = ItemDao().getItemListFromFile()
   }
 
   @objc func addItem() -> Void {
@@ -57,28 +50,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
   func add(_ item: Item) {
     items.append(item)
+    ItemDao().save(items)
+    
     if let tableView = itemsTableView {
       tableView.reloadData()
     } else {
       Alert(controller: self).show(message: "Erro ao atualizar tabela")
     }
-    
-    do {
-      let data = try NSKeyedArchiver.archivedData(withRootObject: items, requiringSecureCoding: false)
-      guard let path = retrieveItemsDirectory() else { return }
-      
-      try data.write(to: path)
-    } catch {
-      print(error.localizedDescription)
-    }
-
-  }
-
-  func retrieveItemsDirectory() -> URL? {
-    guard let directory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return nil }
-    let path = directory.appendingPathComponent("items")
-    
-    return path
   }
   
   //MARK: - UITableViewDataSource
