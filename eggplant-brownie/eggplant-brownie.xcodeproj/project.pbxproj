@@ -70,10 +70,10 @@
 		4CB622A22A0A9AAF0088F117 /* eggplant-brownie */ = {
 			isa = PBXGroup;
 			children = (
+				4CB622A32A0A9AAF0088F117 /* AppDelegate.swift */,
 				4CB622B92A0A9B140088F117 /* Models */,
 				4CB622B82A0A9AFD0088F117 /* Controllers */,
 				4CB622B72A0A9ADA0088F117 /* Views */,
-				4CB622A32A0A9AAF0088F117 /* AppDelegate.swift */,
 				4CB622A52A0A9AAF0088F117 /* SceneDelegate.swift */,
 				4CB622AC2A0A9AB10088F117 /* Assets.xcassets */,
 				4CB622B12A0A9AB10088F117 /* Info.plist */,
